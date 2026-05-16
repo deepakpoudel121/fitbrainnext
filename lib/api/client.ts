@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosError } from 'axios'
 import { useAuthStore } from '@/lib/stores/authStore'
 
-const API_BASE_URL = 'https://fitbrain-production.up.railway.app'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 // Create axios instance
 const axiosInstance: AxiosInstance = axios.create({
