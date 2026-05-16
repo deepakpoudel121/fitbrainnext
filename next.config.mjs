@@ -16,10 +16,12 @@ const nextConfig = {
     optimizePackageImports: ['recharts', 'lucide-react'],
   },
   async rewrites() {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
+    if (!apiUrl) throw new Error('NEXT_PUBLIC_API_URL is not set')
     return [
       {
         source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
+        destination: `${apiUrl}/api/:path*`,
       },
     ]
   },
